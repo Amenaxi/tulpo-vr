@@ -1,1 +1,105 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Laguna Huamanbull - Babylon VR</title></head><body style="margin:0; overflow:hidden;"><canvas id="renderCanvas" style="width:100%; height:100%;"></canvas><script defer="defer" src="bundle.a99052be0d130e0d309b.js"></script></body></html>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Laguna Huamanbull - Babylon VR</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    /* ===== Pantalla de bienvenida ===== */
+    .welcome {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: linear-gradient(to bottom, #5fd68d, #2d8659);
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .leaves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: url("assets/hojas.png") center/cover no-repeat;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .content {
+      z-index: 1;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .content h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .content p {
+      font-size: 16px;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background-color: #ffd700;
+      color: black;
+      font-weight: bold;
+      padding: 15px 40px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background-color: #e6c200;
+    }
+
+    /* ===== Canvas VR oculto al inicio ===== */
+    #renderCanvas {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Pantalla de bienvenida -->
+  <div class="welcome" id="welcome">
+    <div class="leaves"></div>
+    <div class="content">
+      <h1>Laguna Huamanbull</h1>
+      <p>Explora este escenario en Realidad Virtual</p>
+      <button class="btn" onclick="entrarVR()">Entrar en VR</button>
+    </div>
+  </div>
+
+  <!-- Canvas Babylon -->
+  <canvas id="renderCanvas"></canvas>
+
+  <!-- Tu bundle de Babylon generado por Webpack -->
+  <script defer src="bundle.a99052be0d130e0d309b.js"></script>
+
+  <script>
+    function entrarVR() {
+      document.getElementById("welcome").style.display = "none";
+      document.getElementById("renderCanvas").style.display = "block";
+    }
+  </script>
+</body>
+</html>
