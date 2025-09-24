@@ -96,10 +96,14 @@
   <script defer src="bundle.a99052be0d130e0d309b.js"></script>
 
   <script>
-    function entrarVR() {
-      document.getElementById("welcome").style.display = "none";
-      document.getElementById("renderCanvas").style.display = "block";
+  function entrarVR() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("renderCanvas").style.display = "block";
+    // 👇 Forzar Cardboard / VR
+    if (window.enterXR) {
+      window.enterXR();
     }
-  </script>
+  }
+</script>
 </body>
 </html>
